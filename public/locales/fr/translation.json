@@ -1,0 +1,16 @@
+{
+    "common": {
+      "loginPlaceholder": "identifiant",
+      "passwordPlaceholder": "mot de passe",
+      "connect": "se connecter",
+    "loginError": "Connexion impossible",
+    "sortBy": "trié par",
+    "cancel": "Annuler",
+    "save": "Sauvegarder",
+    "welcome": "Bienvenue",
+    "logout": "Se déconnecter"
+    },
+    "error": {
+        "minLen": "au moins {{field}} caractères",
+        "required": "{{field}} est obligatoire"
+    }}
