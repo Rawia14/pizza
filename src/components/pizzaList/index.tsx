@@ -23,6 +23,8 @@ interface Props {
           gap="20px"
           justifyContent="space-around"
           id="list"
+          flexDirection={"column"}
+          width={"200px"}
         >
           {pizzas?.map((pizza: Pizza) => (
             <PizzaCard pizza={pizza} />

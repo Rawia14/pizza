@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import Pizza from "../../models/pizza";
-import { Card, CardMedia } from "@mui/material";
+import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 
 interface props {
     pizza: Pizza;
@@ -19,7 +19,19 @@ interface props {
             />
             
           </Card>
-    
+          <Box>
+          <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {pizza.name}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {pizza.description}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {pizza.price}
+          </Typography>
+        </CardContent>
+        </Box>
           
         </>
       );

@@ -10,7 +10,7 @@ import AuthenticationService from "./services/AuthenticationService";
 const App = () => {
   // Zone pour faire plein de trucs
   const { t } = useTranslation();
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(
+  const [] = useState<boolean>(
     AuthenticationService.isAthenticated()
   );
 
@@ -21,8 +21,7 @@ const App = () => {
   // Ici on construit l'interface
   return (
     <div className="App">
-      <Header setIsAuthenticated={setIsAuthenticated}
-        isAuthenticated={isAuthenticated} /> 
+      <Header  /> 
       <main>
         
         <PizzaList pizzas={pizzaL} />
