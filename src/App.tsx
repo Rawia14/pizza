@@ -1,20 +1,18 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Pizza from "./models/pizza";
-import { mockDataPizzas } from "./data/MockData";
 import PizzaList from "./components/pizzaList";
 import Header from "./components/header";
-import AuthenticationService from "./services/AuthenticationService";
+
+import PizzaL from "./pages/PizzaL";
+import { mockDataPizzas } from "./data/MockData";
 
 
 const App = () => {
   // Zone pour faire plein de trucs
-  const { t } = useTranslation();
-  const [] = useState<boolean>(
-    AuthenticationService.isAthenticated()
-  );
-
-  const [pizzaL, setPizzaL] = useState<Pizza[]>(mockDataPizzas);
+  useTranslation();
+  
+  const [pizzaL] = useState<Pizza[]>(mockDataPizzas);
 
   
 
@@ -23,8 +21,11 @@ const App = () => {
     <div className="App">
       <Header  /> 
       <main>
-        
+     
+      
         <PizzaList pizzas={pizzaL} />
+        
+        
       </main>
     </div>
   );

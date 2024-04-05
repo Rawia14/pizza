@@ -1,15 +1,22 @@
-h1 {
-    font-size: 2.5em !important;
-    color: #fbc02c;
-    text-align: center;
-  }
-  
-  header a {
-    text-decoration: none;
-  }
-  
-  .menu > div {
-    margin: 0 0.5em;
-  }
-  
- 
+.header {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.menu img {
+  width: 10em;
+}
+
+.header h1 {
+  text-align: justify;
+  color: #fbc02c;
+  font-size: 4em !important;
+}
