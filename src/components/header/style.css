@@ -20,3 +20,7 @@
   color: #fbc02c;
   font-size: 4em !important;
 }
+
+body {
+  padding-top: 100px; 
+}

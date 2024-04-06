@@ -9,10 +9,13 @@
     "save": "Save",
     "welcome": "Welcome",
     "logout": "Sign out",
-    "Chez Marioo": "At Mario Pizzeria"
+    "Chez Mario": "At Mario's Pizzaria",
+    "quantity": "quantity",
+    "Sélectionnez vos pizzas" : "Select your pizzas"
   },
   "error": {
     "minLen": "at least {{field}} characters",
     "required": "{{field}} is required"
   }
+  
 }

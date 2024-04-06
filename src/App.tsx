@@ -3,8 +3,6 @@ import { useTranslation } from "react-i18next";
 import Pizza from "./models/pizza";
 import PizzaList from "./components/pizzaList";
 import Header from "./components/header";
-
-import PizzaL from "./pages/PizzaL";
 import { mockDataPizzas } from "./data/MockData";
 
 
