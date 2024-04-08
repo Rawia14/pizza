@@ -19,7 +19,8 @@ interface Props {
 
 const PizzaCard = ({ pizza }: Props) => {
   const { t } = useTranslation();
-  const [quantity, setQuantity] = useState(0); 
+  const [quantity, setQuantity] = useState(0);
+  
 
   const handleIncrement = () => {
     setQuantity(quantity + 1);
@@ -91,6 +92,7 @@ const PizzaCard = ({ pizza }: Props) => {
           </Box>
         </Grid>
       </Grid>
+      
     </Card>
   );
 };

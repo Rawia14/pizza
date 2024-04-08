@@ -9,9 +9,10 @@ import {
 import { useFormik } from "formik";
 import { t } from "i18next";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import * as yup from "yup";
-import Client from "../../models/Client/client";
+import Client from "../../models/client";
+
 
 interface props {
   addClient: Function;
@@ -62,7 +63,7 @@ const AddClient = ({ addClient }: props) => {
       cli.address = values.address;
 
       if (addClient(cli)) {
-        navigate("/");
+        navigate("/login");
       }
     },
   });
@@ -163,6 +164,9 @@ const AddClient = ({ addClient }: props) => {
           </Button>
         </CardActions>
       </Card>
+      <Box sx={{ marginTop: "1em", textAlign: "center" }}>
+        <NavLink to="/register">{t("common.createNewAccount")}</NavLink>
+      </Box>
     </form>
   );
 };

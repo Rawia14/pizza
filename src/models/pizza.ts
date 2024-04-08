@@ -5,6 +5,7 @@ export default class Pizza {
  image: string;
  price: number;
  
+ 
  constructor(
     id: number,
     name: string,

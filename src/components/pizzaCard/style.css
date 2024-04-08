@@ -4,11 +4,11 @@
   margin-bottom: 20px;
 }
 
-.pizzaCard img {
+/*.pizzaCard img {
   width: 200px; 
   height: auto; 
   margin-right: 10px; 
-}
+}*/
 
 .pizzaCardContent {
   display: flex;

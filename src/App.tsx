@@ -1,27 +1,35 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import Pizza from "./models/pizza";
-import PizzaList from "./components/pizzaList";
 import Header from "./components/header";
-import { mockDataPizzas } from "./data/MockData";
-
+import { Route, Routes, Navigate } from "react-router-dom";
+import AuthenticationService from "./services/AuthenticationService";
+import PizzaL from "./pages/PizzaL";
+import Login from "./pages/login";
+import "./App.css";
+import AddClient from "./pages/creation";
 
 const App = () => {
-  // Zone pour faire plein de trucs
   useTranslation();
-  
-  const [pizzaL] = useState<Pizza[]>(mockDataPizzas);
+
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(
+    AuthenticationService.isAthenticated()
+  );
 
   
 
-  // Ici on construit l'interface
   return (
     <div className="App">
-      <Header  /> 
+      <Header setIsAuthenticated={setIsAuthenticated}
+        isAuthenticated={isAuthenticated}
+         />
       <main>
-     
       
-        <PizzaList pizzas={pizzaL} />
+        <Routes>
+          <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+          <Route path="/pizzaL" element={ <PizzaL />} />
+          <Route path="/" element={<Navigate replace to={isAuthenticated ? "/pizzaL" : "/login"} />} />
+          <Route path="/add" element={<AddClient addClient={AddClient} />} />
+        </Routes>
         
         
       </main>

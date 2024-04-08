@@ -5,6 +5,5 @@ export default class Client {
     address: string = "";
     phoneNumber: string = "";
     password: string = "";
-    
+    confirmation: string= "";
   }
-  

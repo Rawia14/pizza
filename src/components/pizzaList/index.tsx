@@ -8,15 +8,15 @@ interface Props {
 }
 
 const PizzaList = ({ pizzas }: Props) => {
-    // zone pour faire des trucs
+    
     const { t } = useTranslation();
 
-    // Ici on construit l'interface
+    
     return (
         <Box className="pizzaList" sx={{ paddingTop: '64px' }} >
             <Box mb={5}>
                 <Typography variant="h4">
-                    {t("common.Sélectionnez vos pizzas")}
+                {t("common.Sélectionnez vos pizzas")}
                 </Typography>
             </Box>
             <Box
@@ -28,7 +28,9 @@ const PizzaList = ({ pizzas }: Props) => {
                 flexDirection={"column"}
             >
                 {pizzas?.map((pizza: Pizza) => (
+                    <article>
                     <PizzaCard pizza={pizza} />
+                    </article>
                 ))}
             </Box>
         </Box>

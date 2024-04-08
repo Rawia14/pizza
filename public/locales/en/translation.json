@@ -11,11 +11,17 @@
     "logout": "Sign out",
     "Chez Mario": "At Mario's Pizzaria",
     "quantity": "quantity",
-    "Sélectionnez vos pizzas" : "Select your pizzas"
+    "Sélectionnez vos pizzas": "Select your pizzas",
+    "AddClient": "create an account"
   },
   "error": {
     "minLen": "at least {{field}} characters",
     "required": "{{field}} is required"
-  }
-  
+  },
+  "quantity": "quantity",
+  "everybody": "everybody",
+  "Our pizzas": "Our pizzas",
+  "Cancel": "cancel",
+  "Save": "save",
+  "AddClient": "Create"
 }
