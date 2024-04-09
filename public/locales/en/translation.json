@@ -9,10 +9,12 @@
     "save": "Save",
     "welcome": "Welcome",
     "logout": "Sign out",
-    "Chez Mario": "At Mario's Pizzaria",
+    "Chez Mario": "Mario's Pizza",
     "quantity": "quantity",
     "Sélectionnez vos pizzas": "Select your pizzas",
-    "AddClient": "create an account"
+    "AddClient": "create your account",
+    "Create your customer account": "Create your customer account",
+    "createNewAccount": "Create your account"
   },
   "error": {
     "minLen": "at least {{field}} characters",
@@ -23,5 +25,17 @@
   "Our pizzas": "Our pizzas",
   "Cancel": "cancel",
   "Save": "save",
-  "AddClient": "Create"
+  "AddClient": "Create",
+  "Create": "Create",
+  "lastname": "lastname",
+  "firstname": "firstname",
+  "mot de passe": "Password",
+  "confirmation": "confirmation",
+  "Address": "Address",
+  "phoneNumber": "phone number",
+  "Create your account": "Create your account",
+  "Lastname": "Lastname",
+  "Firstname": "Firstname",
+  "Confirmation": "Confirmation",
+  "PhoneNumber": "Phone number"
 }

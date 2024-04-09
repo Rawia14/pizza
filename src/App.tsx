@@ -7,6 +7,7 @@ import PizzaL from "./pages/PizzaL";
 import Login from "./pages/login";
 import "./App.css";
 import AddClient from "./pages/creation";
+import CongratulationsModal from "./components/congratulations";
 
 const App = () => {
   useTranslation();
@@ -29,6 +30,8 @@ const App = () => {
           <Route path="/pizzaL" element={ <PizzaL />} />
           <Route path="/" element={<Navigate replace to={isAuthenticated ? "/pizzaL" : "/login"} />} />
           <Route path="/add" element={<AddClient addClient={AddClient} />} />
+          <Route path="/modal" element={<AddClient addClient={AddClient} />} />
+          <Route path="/CongratulationsModal" element={<CongratulationsModal open={undefined} handleClose={undefined}  />} />
         </Routes>
         
         

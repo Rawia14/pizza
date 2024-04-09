@@ -7,7 +7,9 @@ import {
   Box,
   Button,
   Card,
+  CardActions,
   MenuItem,
+  Modal,
   TextField,
   Typography,
 } from "@mui/material";
@@ -61,6 +63,13 @@ const Login = ({ setIsAuthenticated }: Props) => {
       );
     },
   });
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <Card className="login" elevation={10} sx={{
@@ -107,9 +116,18 @@ const Login = ({ setIsAuthenticated }: Props) => {
           helperText={formik.touched.password && formik.errors.password}
           style={{backgroundColor: "#FFFFFF"}}
         />
-        <Box sx={{ marginTop: "1em", textAlign: "center" }}>
-  <NavLink to="/add" >{t("common.AddClient")}</NavLink>
-</Box>
+        
+<CardActions
+          sx={{ display: "flex", justifyContent: "flex-end", marginTop: "2em" }}
+        >
+          <Button
+            type="submit"
+            variant="contained"
+            sx={{ backgroundColor: "#fbc02c"  }}
+          >
+            <NavLink to="/add">{t("common.AddClient")}</NavLink>
+          </Button>
+          </CardActions>
         <Button
           variant="contained"
           type="submit"
@@ -120,6 +138,10 @@ const Login = ({ setIsAuthenticated }: Props) => {
         >
           {t("common.connect")}
         </Button>
+        
+          
+            
+          
       </form>
     </Card>
   );

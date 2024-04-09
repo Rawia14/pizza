@@ -11,7 +11,10 @@ import {
   CardMedia,
   Grid,
   Typography,
+  Badge,
+  IconButton,
 } from '@mui/material';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 interface Props {
   pizza: Pizza;
@@ -20,33 +23,22 @@ interface Props {
 const PizzaCard = ({ pizza }: Props) => {
   const { t } = useTranslation();
   const [quantity, setQuantity] = useState(0);
-  
+  const [cartTotal, setCartTotal] = useState(0);
 
   const handleIncrement = () => {
     setQuantity(quantity + 1);
+    setCartTotal(cartTotal + pizza.price);
   };
 
   const handleDecrement = () => {
     if (quantity > 0) {
       setQuantity(quantity - 1);
+      setCartTotal(cartTotal - pizza.price);
     }
   };
 
-  const handleQuantityButtonClick = () => {
-    console.log(`You selected ${quantity} pizza(s).`);
-  };
-
   return (
-    <Card
-      className="pizzaCard"
-      elevation={15}
-      sx={{
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between', 
-      }}
-    >
+    <Card className="pizzaCard" elevation={15} sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <CardMedia
           component="img"
@@ -63,8 +55,7 @@ const PizzaCard = ({ pizza }: Props) => {
       </Box>
       <Grid container direction="column" alignItems="flex-end" sx={{ marginLeft: 'auto' }}>
         <Grid item sx={{ textAlign: 'right' }}>
-          <Typography variant="body2" color="text.secondary" 
-          sx={{ backgroundColor: '#008000', marginBottom: '5px', marginRight: '100px', color: '#FFFFFF', fontSize: '20px' }}>
+          <Typography variant="body2" color="text.secondary" sx={{ backgroundColor: '#008000', marginBottom: '5px', marginRight: '100px', color: '#FFFFFF', fontSize: '20px' }}>
             {pizza.price + '€'}
           </Typography>
         </Grid>
@@ -77,14 +68,9 @@ const PizzaCard = ({ pizza }: Props) => {
               <Button size="small" onClick={handleDecrement}>
                 -
               </Button>
-              <Button
-                size="small"
-                variant="outlined"
-                onClick={handleQuantityButtonClick}
-                sx={{ width: '30px', textAlign: 'center', marginLeft: '5px', marginRight: '5px' }}
-              >
+              <Typography variant="body2" color="text.secondary">
                 {quantity}
-              </Button>
+              </Typography>
               <Button size="small" onClick={handleIncrement}>
                 +
               </Button>
@@ -92,7 +78,6 @@ const PizzaCard = ({ pizza }: Props) => {
           </Box>
         </Grid>
       </Grid>
-      
     </Card>
   );
 };

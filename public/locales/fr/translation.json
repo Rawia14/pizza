@@ -12,7 +12,9 @@
     "At Mario's Pizzaria": "Chez Mario",
     "quantity": "quantité",
     "Select your pizzas": "Sélectionnez vos pizzas",
-    "AddClient": "créer un compte"
+    "AddClient": "créer un compte",
+    "Create your customer account": "Créer votre compte client",
+    "createNewAccount": "Créer votre compte"
   },
   "error": {
     "minLen": "au moins {{field}} caractères",
@@ -20,5 +22,9 @@
   },
   "quantity": "quantité",
   "everybody": "tout le monde",
-  "Our pizzas": "Nos pizzas"
+  "Our pizzas": "Nos pizzas",
+  "Create": "créer",
+  "Address": "adresse",
+  "phoneNumber": "numéro de téléphone",
+  "Create your account": "Créer votre compte"
 }

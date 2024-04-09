@@ -4,7 +4,10 @@ import {
   Card,
   CardActions,
   CardContent,
+  Grid,
+  Modal,
   TextField,
+  Typography,
 } from "@mui/material";
 import { useFormik } from "formik";
 import { t } from "i18next";
@@ -12,6 +15,9 @@ import { useTranslation } from "react-i18next";
 import { NavLink, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import Client from "../../models/client";
+import "./style.css";
+import { useState } from "react";
+import CongratulationsModal from "../../components/congratulations";
 
 
 interface props {
@@ -25,6 +31,7 @@ const AddClient = ({ addClient }: props) => {
       .string()
       .required(t("required").toString())
       .min(3, t("atLeast", { count: 3 })),
+      
     lastname: yup
       .string()
       .required(t("required").toString())
@@ -41,6 +48,11 @@ const AddClient = ({ addClient }: props) => {
       .string()
       .required(t("required").toString())
       .min(3, t("atLeast", { count: 3 })),
+      confirmPassword: yup
+      .string()
+      .required(t("required"))
+      .oneOf([yup.ref("password")],
+       t("passwordsMustMatch")),
   });
 
   const formik = useFormik({
@@ -49,6 +61,7 @@ const AddClient = ({ addClient }: props) => {
       firstname: "",
       lastname: "",
       password: "",
+      confirmPassword: "",
       address: "",
       phoneNumber: "",
     },
@@ -66,19 +79,45 @@ const AddClient = ({ addClient }: props) => {
         navigate("/login");
       }
     },
+    
   });
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const [openModal, setOpenModal] = useState(false);
 
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
+
+  
   return (
-    <form onSubmit={formik.handleSubmit}>
+    
+    <form onSubmit={formik.handleSubmit} className="addClientForm">
+<Box mb={5}>
+                <Typography variant="h4" color= "#3b438b" >
+                {t("Create your account")}
+                </Typography>
+            </Box>
       <Card
         elevation={2}
         sx={{ margin: "auto", marginTop: "3em", maxWidth: "50em" }}
       >
         <CardContent sx={{ display: "flex", flexDirection: "column" }}>
-          <Box className="input">
-            <label>{t("lastname")}</label>
+          <Grid className="formRow" container spacing={2}>
+          <Grid item xs={12} sm={6}>
+            <label>{t("Lastname")}</label>
             <TextField
-              placeholder={t("lastname")}
+            className="formField" 
+              
               type="text"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -87,12 +126,13 @@ const AddClient = ({ addClient }: props) => {
               error={formik.touched.lastname && Boolean(formik.errors.lastname)}
               helperText={formik.touched.lastname && formik.errors.lastname}
             />
-          </Box>
+          </Grid>
 
-          <Box className="input">
-            <label>{t("firstname")}</label>
+          <Grid item xs={12} sm={6} className="formRow">
+            <label>{t("Firstname")}</label>
             <TextField
-              placeholder={t("firstname")}
+              
+              className="formField" 
               type="text"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -103,12 +143,67 @@ const AddClient = ({ addClient }: props) => {
               }
               helperText={formik.touched.firstname && formik.errors.firstname}
             />
-          </Box>
-
-          <Box className="input">
-            <label>{t("phoneNumber")}</label>
+          </Grid>
+          <Grid item xs={12} sm={6} className="formRow">
+            <label>{t("mot de passe")}</label>
             <TextField
-              placeholder={t("phoneNumber")}
+              
+              className="formField" 
+              type="text"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              name="mot de passe"
+              value={formik.values.password}
+              error={
+                formik.touched.password && Boolean(formik.errors.password)
+              }
+              helperText={formik.touched.password && formik.errors.password}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} className="formRow">
+            <label>{t("Confirmation")}</label>
+            <TextField
+              
+              className="formField"
+              type="text"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              name="mot de passe"
+              value={formik.values.password}
+              error={
+                formik.touched.password && Boolean(formik.errors.password)
+              }
+              helperText={formik.touched.password && formik.errors.password}
+            />
+          </Grid>
+
+
+
+          
+          <Grid item xs={12} className="formRow">
+            <label>{t("Address")}</label>
+            <TextField
+             
+             
+              type="text"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              name="address"
+              value={formik.values.address}
+              error={formik.touched.address && Boolean(formik.errors.address)}
+              helperText={formik.touched.address && formik.errors.address}
+              multiline
+              rows={3}
+              maxRows={3}
+              fullWidth
+              sx={{ maxWidth: "60%" }}
+            />
+           </Grid>
+          <Grid item xs={12} className="formRow">
+            <label>{t("PhoneNumber")}</label>
+            <TextField
+              
+               
               type="text"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -121,53 +216,43 @@ const AddClient = ({ addClient }: props) => {
                 formik.touched.phoneNumber && formik.errors.phoneNumber
               }
             />
-          </Box>
-          <Box className="input">
-            <label>{t("Address")}</label>
-            <TextField
-              placeholder={t("Address")}
-              type="text"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              name="address"
-              value={formik.values.address}
-              error={formik.touched.address && Boolean(formik.errors.address)}
-              helperText={formik.touched.address && formik.errors.address}
-              multiline
-              rows={3}
-              maxRows={3}
-              fullWidth
-              sx={{ maxWidth: "50%" }}
-            />
-          </Box>
-        </CardContent>
+          </Grid>
+          </Grid>
+        
         <CardActions
           sx={{ display: "flex", justifyContent: "flex-end", marginTop: "2em" }}
         >
           <Button
-            type="reset"
-            variant="outlined"
-            onClick={() => navigate("/")}
-            sx={{
-              color: "var(--main-color)",
-              borderColor: "var(--main-color)",
-            }}
-          >
-            {t("Cancel")}
-          </Button>
-          <Button
+          onClick={handleOpenModal}
             type="submit"
             variant="contained"
-            sx={{ backgroundColor: "var(--main-color)" }}
+            sx={{ backgroundColor: "#fbc02c", color: "#3b438b"  }}
           >
-            {t("Save")}
+            {t("Create")}
           </Button>
+          <CongratulationsModal open={openModal} handleClose={handleCloseModal} />
         </CardActions>
+        </CardContent>
       </Card>
-      <Box sx={{ marginTop: "1em", textAlign: "center" }}>
-        <NavLink to="/register">{t("common.createNewAccount")}</NavLink>
-      </Box>
+      <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="congratulations"
+          aria-describedby="congratulations"
+        >
+          <Box sx={{ width: 400 }}>
+            <h2 id="congratulations">Congratulations!</h2>
+            <p id="congratulations">You are ready to order.</p>
+            <NavLink to="/pizzaL">Place your first order</NavLink>
+          </Box>
+        </Modal>
+        
+      
+    
     </form>
+
+    
+    
   );
 };
 
