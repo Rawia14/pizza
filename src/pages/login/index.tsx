@@ -9,7 +9,6 @@ import {
   Card,
   CardActions,
   MenuItem,
-  Modal,
   TextField,
   Typography,
 } from "@mui/material";
@@ -63,13 +62,7 @@ const Login = ({ setIsAuthenticated }: Props) => {
       );
     },
   });
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
+  
 
   return (
     <Card className="login" elevation={10} sx={{

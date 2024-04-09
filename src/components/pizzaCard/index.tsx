@@ -11,32 +11,30 @@ import {
   CardMedia,
   Grid,
   Typography,
-  Badge,
-  IconButton,
+ 
 } from '@mui/material';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
 
 interface Props {
   pizza: Pizza;
+  updateTotalPrice: (price: number) => void;
 }
 
-const PizzaCard = ({ pizza }: Props) => {
+const PizzaCard = ({ pizza, updateTotalPrice  }: Props) => {
   const { t } = useTranslation();
   const [quantity, setQuantity] = useState(0);
-  const [cartTotal, setCartTotal] = useState(0);
 
   const handleIncrement = () => {
     setQuantity(quantity + 1);
-    setCartTotal(cartTotal + pizza.price);
+    updateTotalPrice(pizza.price);
   };
 
   const handleDecrement = () => {
     if (quantity > 0) {
       setQuantity(quantity - 1);
-      setCartTotal(cartTotal - pizza.price);
-    }
+    updateTotalPrice(-pizza.price);
   };
-
+  };
   return (
     <Card className="pizzaCard" elevation={15} sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>

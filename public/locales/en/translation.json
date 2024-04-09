@@ -37,5 +37,8 @@
   "Lastname": "Lastname",
   "Firstname": "Firstname",
   "Confirmation": "Confirmation",
-  "PhoneNumber": "Phone number"
+  "PhoneNumber": "Phone number",
+  "atLeast": "at least {{count}} characters",
+  "required": "required",
+  "exactly": "must be exactly {{count}} characters"
 }
