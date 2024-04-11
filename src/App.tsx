@@ -8,6 +8,7 @@ import Login from "./pages/login";
 import "./App.css";
 import AddClient from "./pages/creation";
 import CongratulationsModal from "./components/congratulations";
+import Commandeok from "./components/commandeOKmodal";
 
 const App = () => {
   useTranslation();
@@ -32,6 +33,7 @@ const App = () => {
           <Route path="/add" element={<AddClient addClient={AddClient} />} />
           <Route path="/modal" element={<AddClient addClient={AddClient} />} />
           <Route path="/CongratulationsModal" element={<CongratulationsModal open={undefined} handleClose={undefined}  />} />
+          <Route path="/Commandeok" element={<Commandeok open={undefined} handleClose={undefined}  />} />
         </Routes>
         
         

@@ -35,7 +35,7 @@ const Login = ({ setIsAuthenticated }: Props) => {
       .test(
         "3Len",
         t("error.minLen", { field: "3" }),
-        (value: string) => value.length >= 3
+        (value: string) => value.length >= 10
       ),
     password: yup
       .string()
@@ -43,14 +43,14 @@ const Login = ({ setIsAuthenticated }: Props) => {
       .test(
         "4Len",
         t("error.minLen", { field: "4" }),
-        (value: string) => value.length >= 4
+        (value: string) => value.length >= 6
       ),
   });
 
   const formik = useFormik({
     initialValues: {
-      login: "",
-      password: "",
+      login: "0782966741",
+      password: "123456",
     },
     validationSchema: schema,
     onSubmit: (values) => {
@@ -62,12 +62,15 @@ const Login = ({ setIsAuthenticated }: Props) => {
       );
     },
   });
-  
 
   return (
-    <Card className="login" elevation={10} sx={{
-      backgroundColor: "#3b438b",
-    }} >
+    <Card
+      className="login"
+      elevation={10}
+      sx={{
+        backgroundColor: "#3b438b",
+      }}
+    >
       {error && <Typography color="red">{t("common.loginError")}</Typography>}
       <form onSubmit={formik.handleSubmit}>
         <Typography
@@ -85,7 +88,7 @@ const Login = ({ setIsAuthenticated }: Props) => {
           name="login"
           error={formik.touched.login && Boolean(formik.errors.login)}
           helperText={formik.touched.login && formik.errors.login}
-          style={{backgroundColor: "#FFFFFF"}}
+          style={{ backgroundColor: "#FFFFFF" }}
         />
         <Box role="menubar" display="flex" justifyContent="center">
           <MenuItem>
@@ -107,34 +110,36 @@ const Login = ({ setIsAuthenticated }: Props) => {
           name="password"
           error={formik.touched.password && Boolean(formik.errors.password)}
           helperText={formik.touched.password && formik.errors.password}
-          style={{backgroundColor: "#FFFFFF"}}
+          style={{ backgroundColor: "#FFFFFF" }}
         />
-        
-<CardActions
-          sx={{ display: "flex", justifyContent: "flex-end", marginTop: "2em" }}
-        >
-          <Button
-            type="submit"
-            variant="contained"
-            sx={{ backgroundColor: "#fbc02c"  }}
-          >
-            <NavLink to="/add">{t("common.AddClient")}</NavLink>
-          </Button>
-          </CardActions>
-        <Button
-          variant="contained"
-          type="submit"
+        <Box
           sx={{
-            backgroundColor: "#fbc02c",
-            color: "#3b438b",
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "center",
           }}
         >
-          {t("common.connect")}
+          <NavLink
+            to="/add"
+            style={{
+              marginRight: "16px",
+              textDecoration: "none",
+              color: "#fbc02c",
+            }}
+          >
+            {t("common.AddClient")}
+          </NavLink>
+        </Box>
+        <Button
+          type="submit"
+          variant="contained"
+          sx={{ backgroundColor: "#fbc02c", color: "#3b438b" }}
+        >
+          <NavLink to="/pizzaL" style={{ textDecoration: 'none', color: 'inherit' }}>
+            {t("common.connect")}
+          </NavLink>
         </Button>
         
-          
-            
-          
       </form>
     </Card>
   );

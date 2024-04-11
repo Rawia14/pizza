@@ -12,7 +12,7 @@
     "Chez Mario": "Mario's Pizza",
     "quantity": "quantity",
     "Sélectionnez vos pizzas": "Select your pizzas",
-    "AddClient": "create your account",
+    "AddClient": "Create your account",
     "Create your customer account": "Create your customer account",
     "createNewAccount": "Create your account"
   },
@@ -40,5 +40,6 @@
   "PhoneNumber": "Phone number",
   "atLeast": "at least {{count}} characters",
   "required": "required",
-  "exactly": "must be exactly {{count}} characters"
+  "exactly": "must be exactly {{count}} characters",
+  "Your order is being prepared.": "Your order is being prepared."
 }

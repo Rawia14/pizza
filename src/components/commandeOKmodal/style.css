@@ -1,0 +1,24 @@
+.modal-container {
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #3b438b;
+    padding: 2em;
+    border-radius: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modal-title {
+    color: #fbc02c;
+  }
+  
+  .modal-message {
+    color: #fbc02c;
+  }
+  
+  .modal-link {
+    color: #fbc02c;
+  }
+  
