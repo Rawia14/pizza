@@ -3,9 +3,14 @@ import { Modal } from "@mui/material";
 import Box from "@mui/material/Box";
 import { NavLink } from "react-router-dom";
 import './style.css';
+import { useTranslation } from 'react-i18next';
+
+
+
 
 
 const Commandeok = ({ open, handleClose }) => {
+  const { t } = useTranslation();
     return (
       <Modal
         open={open}
@@ -27,9 +32,9 @@ const Commandeok = ({ open, handleClose }) => {
             
           }}
         >
-          <h2 id="" className="modal-title" >Your order is being prepared</h2>
-          <p id="Commandeok" className="modal-message">It will be delivered in 30 minutes.</p>
-          <NavLink to="/pizzaL" className="modal-link">Return to order page</NavLink>
+          <h2 id="" className="modal-title" >{t("common.Your order is being prepared")}</h2>
+          <p id="Commandeok" className="modal-message">{t("common.It will be delivered in 30 minutes")}</p>
+          <NavLink to="/pizzaL" className="modal-link">{t("Return to order page")}</NavLink>
         </Box>
       </Modal>
     );

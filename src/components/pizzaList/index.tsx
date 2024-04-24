@@ -24,9 +24,6 @@ const PizzaList = ({ pizzas }: Props) => {
 
 
 const [open, setOpen] = useState(false);
-const handleOpen = () => {
-setOpen(true);
-};
 const handleClose = () => {
 setOpen(false);
 };
@@ -59,7 +56,7 @@ setOpenModal(false);
         }}
       >
         <Typography variant="h5" color="#000000">
-          Total Price: {totalPrice} €
+          {t("common.Total Price")}: {totalPrice} €
         </Typography>
         
       <IconButton aria-label="add to shopping cart" sx={{ color: 'black' }} onClick={handleOpenModal}>
@@ -88,9 +85,9 @@ setOpenModal(false);
           aria-describedby="Commandeok"
         >
           <Box sx={{ width: 400 }}>
-            <h2 id="Commandeok">Your order is being prepared</h2>
-            <p id="Commandeok">It will be delivered in 30 minutes.</p>
-            <NavLink to="/pizzaL">Retour à la page de commande</NavLink>
+            <h2 id="Commandeok">{t("common.Your order is being prepared")}</h2>
+            <p id="Commandeok">{t("common.It will be delivered in 30 minutes")}</p>
+            <NavLink to="/pizzaL">{t("Return to order page")}</NavLink>
           </Box>
         </Modal>
     </Box>

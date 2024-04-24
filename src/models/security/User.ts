@@ -1,21 +1,29 @@
-export default class User {
-    username: string;
-    firstname: string;
-    lastname: string;
-    role: string;
-    hasPicture: boolean;
+export default class users {
+  
+  firstname: string;
+  lastname: string;
+  address: string;
+  phoneNumber: string;
+  password: string;
+  
+  
+  constructor(
     
-    constructor(
-        username: string,
-        firstname: string,
-        lastname: string,
-        role: string,
-        hasPicture: boolean) {
-
-        this.username = username;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.role = role;
-        this.hasPicture = hasPicture;
-    }
+    firstname: string,
+    lastname: string,
+    address: string,
+    phoneNumber: string,
+    password: string,
+    
+    
+  ) {
+  
+    this.firstname = firstname;
+    this.lastname = lastname;
+    this.address = address;
+    this.phoneNumber = phoneNumber;
+    this.password = password;
+  
+   
+  }
 }

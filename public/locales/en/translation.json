@@ -14,7 +14,11 @@
     "Sélectionnez vos pizzas": "Select your pizzas",
     "AddClient": "Create your account",
     "Create your customer account": "Create your customer account",
-    "createNewAccount": "Create your account"
+    "createNewAccount": "Create your account",
+    "Your order is being prepared": "Your order is being prepared",
+    "It will be delivered in 30 minutes": "It will be delivered in 30 minutes",
+    "Total Price": "Total Price",
+    "technicalError": "technical error, please try again later."
   },
   "error": {
     "minLen": "at least {{field}} characters",
@@ -41,5 +45,11 @@
   "atLeast": "at least {{count}} characters",
   "required": "required",
   "exactly": "must be exactly {{count}} characters",
-  "Your order is being prepared.": "Your order is being prepared."
+  "Your order is being prepared.": "Your order is being prepared.",
+  "Return to order page": "Return to order page",
+  "Total Price": "Total price",
+  "Login": "Login",
+  "Password": "Password",
+  "Confirm Password": "Confirm Password"
+  
 }

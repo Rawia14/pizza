@@ -7,7 +7,6 @@ import {
   Box,
   Button,
   Card,
-  CardActions,
   MenuItem,
   TextField,
   Typography,
@@ -22,7 +21,7 @@ interface Props {
 const Login = ({ setIsAuthenticated }: Props) => {
   const { t } = useTranslation();
 
-  const [error, setError] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
 
   const schema = yup.object().shape({
     login: yup
@@ -49,19 +48,23 @@ const Login = ({ setIsAuthenticated }: Props) => {
 
   const formik = useFormik({
     initialValues: {
-      login: "0782966741",
-      password: "123456",
+      login: "",
+      password: "",
     },
     validationSchema: schema,
     onSubmit: (values) => {
       AuthenticationService.login(values.login, values.password).then(
         (response) => {
           setIsAuthenticated(response);
-          setError(!response);
-        }
-      );
+          setError(response ? "" : t("common.loginError"));
+        })
+        .catch((reason) => {
+          console.error(reason);
+          setError(t("common.technicalError"));
+        });
     },
   });
+
 
   return (
     <Card
@@ -77,7 +80,7 @@ const Login = ({ setIsAuthenticated }: Props) => {
           variant="h6"
           style={{ color: "#fbc02c", textAlign: "left" }}
         >
-          Identifiant
+          {t("Login")}
         </Typography>
         <TextField
           placeholder=""
@@ -99,7 +102,7 @@ const Login = ({ setIsAuthenticated }: Props) => {
           variant="h6"
           style={{ color: "#fbc02c", textAlign: "left" }}
         >
-          Mot de passe
+          {t("Password")}
         </Typography>
         <TextField
           placeholder=""

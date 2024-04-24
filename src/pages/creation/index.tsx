@@ -10,14 +10,13 @@ import {
   Typography,
 } from "@mui/material";
 import { useFormik } from "formik";
-import { t } from "i18next";
 import { useTranslation } from "react-i18next";
 import { NavLink, useNavigate } from "react-router-dom";
 import * as yup from "yup";
-import Client from "../../models/client";
 import "./style.css";
 import { useState } from "react";
 import CongratulationsModal from "../../components/congratulations";
+import User from "../../models/security/user";
 
 
 interface props {
@@ -51,40 +50,38 @@ const AddClient = ({ addClient }: props) => {
       confirmPassword: yup
       .string()
       .required(t("required"))
-      .oneOf([yup.ref("password")],
+      .oneOf([yup.ref('password')],
        t("passwordsMustMatch")),
   });
 
   const formik = useFormik({
     initialValues: {
-      id: undefined,
+     
       firstname: "",
       lastname: "",
       password: "",
       confirmPassword: "",
       address: "",
       phoneNumber: "",
+     
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      //transform form values to a new Client
-      let cli = new Client();
-      cli.lastname = values.lastname.toUpperCase();
-      cli.firstname = values.firstname;
-      cli.password = values.password;
-      cli.phoneNumber = values.phoneNumber;
-      cli.address = values.address;
+     const user= new User(
+      values.firstname,
+      values.lastname,
+      values.address,
+      values.phoneNumber,
+      values.password,
+    );
 
-      if (addClient(cli)) {
+      if (addClient(user)) {
         navigate("/login");
       }
     },
     
   });
   const [open, setOpen] = useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-  };
   const handleClose = () => {
     setOpen(false);
   };
@@ -103,7 +100,7 @@ const AddClient = ({ addClient }: props) => {
     
     <form onSubmit={formik.handleSubmit} className="addClientForm">
 <Box mb={5}>
-                <Typography variant="h4" color= "#3b438b" >
+                <Typography variant="h4" color= "#3b438b" style={{ textAlign: "left" }}>
                 {t("Create your account")}
                 </Typography>
             </Box>
@@ -145,14 +142,14 @@ const AddClient = ({ addClient }: props) => {
             />
           </Grid>
           <Grid item xs={12} sm={6} className="formRow">
-            <label>{t("mot de passe")}</label>
+            <label>{t("Password")}</label>
             <TextField
               
               className="formField" 
               type="text"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              name="mot de passe"
+              name="password"
               value={formik.values.password}
               error={
                 formik.touched.password && Boolean(formik.errors.password)
@@ -168,7 +165,7 @@ const AddClient = ({ addClient }: props) => {
               type="text"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              name="mot de passe"
+              name="password"
               value={formik.values.password}
               error={
                 formik.touched.password && Boolean(formik.errors.password)

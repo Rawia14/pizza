@@ -1,16 +1,18 @@
-import User from "./User";
+import User from "./user";
 
-export default class LoginResponse{
-    jwt : string;
-    expiration : string ;
-    user : User;
-    refreshToken : string;
+export default class LoginResponse {
+    jwt: string;
+    expiration: string;
+    user: User;
+    refreshToken: string;
+
+
     constructor(
-        jwt : string,
-        expiration : string,
-        user : User,
-        refreshToken : string   
-    ){
+        jwt: string,
+        expiration: string,
+        user: User,
+        refreshToken: string
+    ) {
         this.jwt = jwt;
         this.expiration = expiration;
         this.user = user;

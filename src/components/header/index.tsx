@@ -1,8 +1,7 @@
-import { AppBar, Box, MenuItem, Typography } from "@mui/material";
+import { AppBar, Box, Typography } from "@mui/material";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import "./style.css";
-import { NavLink } from "react-router-dom";
 
 interface Props {
   isAuthenticated: boolean;
@@ -10,7 +9,7 @@ interface Props {
 }
 
 const Header = ({ isAuthenticated, setIsAuthenticated }: Props) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <AppBar
@@ -35,12 +34,7 @@ const Header = ({ isAuthenticated, setIsAuthenticated }: Props) => {
           </Typography>
         </Box>
 
-        <Box display="flex" alignItems="center">
-          <NavLink to="/">{t("Our pizzas")}</NavLink>
-          <MenuItem>
-            <NavLink to={"/pizzaL/"}>Pizza</NavLink>
-          </MenuItem>
-        </Box>
+        
       </Box>
     </AppBar>
   );

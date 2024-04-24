@@ -20,7 +20,7 @@ interface Props {
   updateTotalPrice: (price: number) => void;
 }
 
-const PizzaCard = ({ pizza, updateTotalPrice  }: Props) => {
+const PizzaCard = ({ pizza, updateTotalPrice }: Props) => {
   const { t } = useTranslation();
   const [quantity, setQuantity] = useState(0);
 
@@ -36,7 +36,8 @@ const PizzaCard = ({ pizza, updateTotalPrice  }: Props) => {
   };
   };
   return (
-    <Card className="pizzaCard" elevation={15} sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+    <Card className="pizzaCard" elevation={15} sx={{ display: 'flex', flexDirection: 'row',
+     alignItems: 'center', justifyContent: 'space-between' }}>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <CardMedia
           component="img"
@@ -45,15 +46,18 @@ const PizzaCard = ({ pizza, updateTotalPrice  }: Props) => {
           sx={{ width: '200px', height: 'auto', marginRight: '10px' }}
         />
         <CardContent>
-          <Typography variant="h5">{t('' + pizza.name)}</Typography>
-          <Typography variant="body2" color="text.secondary">
-            {pizza.description}
-          </Typography>
-        </CardContent>
+        <Typography variant="h5" sx={{ textAlign: 'left' }}>
+          {t('' + pizza.name)}
+        </Typography>
+        <Typography variant="body2" color="text.secondary" sx={{ textAlign: 'left' }}>
+          {pizza.description}
+        </Typography>
+      </CardContent>
       </Box>
       <Grid container direction="column" alignItems="flex-end" sx={{ marginLeft: 'auto' }}>
         <Grid item sx={{ textAlign: 'right' }}>
-          <Typography variant="body2" color="text.secondary" sx={{ backgroundColor: '#008000', marginBottom: '5px', marginRight: '100px', color: '#FFFFFF', fontSize: '20px' }}>
+          <Typography variant="body2" color="text.secondary" sx={{ backgroundColor: '#008000',
+           marginBottom: '5px', marginRight: '100px', color: '#FFFFFF', fontSize: '20px' }}>
             {pizza.price + '€'}
           </Typography>
         </Grid>

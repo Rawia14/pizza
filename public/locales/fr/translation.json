@@ -14,7 +14,11 @@
     "Select your pizzas": "Sélectionnez vos pizzas",
     "AddClient": "créer un compte",
     "Create your customer account": "Créer votre compte client",
-    "createNewAccount": "Créer votre compte"
+    "createNewAccount": "Créer votre compte",
+    "Your order is being prepared": "Votre commande est en préparation",
+    "It will be delivered in 30 minutes": "Il sera livré dans 30 minutes",
+    "Total Price": "Prix total",
+    "technicalError": "erreur technique, veuillez réessayer plus tard."
   },
   "error": {
     "minLen": "au moins {{field}} caractères",
@@ -27,5 +31,9 @@
   "Address": "adresse",
   "phoneNumber": "numéro de téléphone",
   "Create your account": "Créer votre compte",
-  "Your order is being prepared.": "Votre commande est en préparation."
+  "Your order is being prepared.": "Votre commande est en préparation.",
+  "Return to order page": "Retour à la page de commande",
+  "Total Price": "prix total",
+  "Login": "Identifiant",
+  "Password": "Mot de passe"
 }
